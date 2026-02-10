@@ -9,61 +9,115 @@
 </head>
 <body>
 
-    <header class="hero">
-        <div class="world-glow"></div>
-        
-        <div class="hero-content">
-            <h2 class="subtitle">NO TE CONFORMES A ESTE</h2>
-            <h1 class="main-title">SIGLO</h1>
-            <p class="verse">"Sino transformaos por medio de la renovación de vuestro entendimiento..." <br> <span>Romanos 12:2</span></p>
-        </div>
-    </header>
+<header class="hero">
+    <video autoplay muted loop playsinline 
+           poster="https://jovenes.atec.mx/img/pic1.png" 
+           class="hero-video">
+        <source src="https://jovenes.atec.mx/video/background.mp4" type="video/mp4">
+        <img src="https://jovenes.atec.mx/img/pic1.png" title="Tu navegador no soporta video HTML5">
+    </video>
+
+    <div class="hero-overlay"></div>
+    <div class="world-glow"></div>
+    
+    <div class="hero-content">
+        <h2 class="subtitle">NO TE CONFORMES A ESTE</h2>
+        <h1 class="main-title">SIGLO</h1>
+        <p class="verse">"Sino transformaos por medio de la renovación de vuestro entendimiento..." <br> <span>Romanos 12:2</span></p>
+    </div>
+</header>
 
 
 
 <section class="events-container">
     
-    <div class="event-card-v2" data-aos="fade-up">
+<div class="event-card-v2 accordion-item" id="event-feb">
+    <div class="accordion-header" onclick="toggleAccordion('event-feb')">
         <div class="card-logo">
             <img src="https://jovenes.atec.mx/img/LogoICVC.png" alt="Logo ICVC">
         </div>
         
         <div class="card-body">
             <h3>NO TE CONFORMES <br> A ESTE SIGLO</h3>
-            <p class="event-subtitle">Estudio Bíblico | Alabanza | Dinamicas | Taller</p>
+            <p class="event-subtitle">Click para ver detalles y logística ▼</p>
         </div>
         
         <div class="card-date-box">
             <div class="date-content">
                 <span class="day">28</span>
                 <span class="month">FEBRERO</span>
-                <span class="year">2026</span>
             </div>
-            <a href="#" class="btn-register-card">¡REGÍSTRATE AHORA!</a>
+            <a href="https://forms.gle/cCFoHLGgx5EVfd2K7" class="btn-register-card" onclick="event.stopPropagation();">¡REGÍSTRATE AHORA!</a>
         </div>
     </div>
 
-    <div class="event-card-v2" data-aos="fade-up">
-        <div class="card-logo">
-            <img src="https://jovenes.atec.mx/img/LogoCamp.png" alt="Logo Iglesia">
+    <div class="accordion-content">
+        <div class="details-container">
+            <div class="video-wrapper">
+                <video controls width="100%" poster="https://jovenes.atec.mx/img/imginvi28feb.png">
+                    <source src="https://jovenes.atec.mx/video/Invitacion28feb.mp4" type="video/mp4">
+                    Tu navegador no soporta el video.
+                </video>
+            </div>
+
+            <div class="details-text">
+                <p><strong>📖 Lema:</strong> "No os conforméis a este siglo" (Romanos 12:2)</p>
+                <p><strong>📅 Fecha:</strong> Sábado 28 de febrero de 2026</p>
+                <p><strong>⏰ Recepción:</strong> 9:00 - 10:00 AM (Desayuno)</p>
+                <p><strong>🕙 Inicio:</strong> 10:00 AM</p>
+                <p><strong>⛪ Lugar:</strong> Iglesia Cristiana Valle de Chalco</p>
+                <p><strong>🗺 Ubicación:</strong> <a href="https://maps.app.goo.gl/RGoaELVe2LEzjpWu8" target="_blank" class="map-link">Ver mapa en Google Maps</a></p>
+                
+                <div class="important-box">
+                    <h4>⚠ IMPORTANTE:</h4>
+                    <ul>
+                        <li>Traer libreta y Biblia Impresa.</li>
+                        <li>Haber leído previamente la carta de 2 de Timoteo.</li>
+                    </ul>
+                </div>
+                <p class="confirmation-note">¡Confirma tu asistencia! Un registro por cada asistente.</p>
+                <p><strong>📝 </strong> <a href="https://forms.gle/cCFoHLGgx5EVfd2K7" target="_blank" class="map-link">¡Registrate Ahora!</a></p>
+            </div>
         </div>
+    </div>
+</div>
+
+
+<div class="event-card-v2 accordion-item" id="retiro-may">
+    <div class="accordion-header" onclick="toggleAccordion('retiro-may')">
+        <div class="card-logo">
+            <img src="https://jovenes.atec.mx/img/LogoCamp.png" alt="Retiro Jovenes">
+        </div>
+        
         <div class="card-body">
             <h3>RETIRO DE <br> JÓVENES</h3>
-            <p class="event-subtitle">Conferencias | Alabanza | Dinamicas | Talleres</p>
+            <p class="event-subtitle">Campamento | Conferencias | Alabanza | Dinamicas</p>
         </div>
+        
         <div class="card-date-box">
             <div class="date-content">
-                <span class="day">1  2 Y 3</span>
+                <span class="day">1 2 Y 3</span>
                 <span class="month">MAYO</span>
-                <span class="year">2026</span>
             </div>
-            <a href="#" class="btn-register-card">¡REGÍSTRATE AHORA!</a>
+            <a href="" class="btn-register-card" onclick="event.stopPropagation();">¡REGÍSTRATE AHORA!</a>
         </div>
     </div>
 
-<div class="event-card-v2" data-aos="fade-up">
+    <div class="accordion-content">
+        <div class="details-container">
+                            
+                <div class="important-box">
+                    <h4>⚠ PROXIMAMENTE MÁS INFORMACIÓN:</h4>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<div class="event-card-v2 accordion-item" id="deportiva-jun">
+    <div class="accordion-header" onclick="toggleAccordion('deportiva-jun')">
         <div class="card-logo">
-            <img src="https://jovenes.atec.mx/img/LogoDep.png" alt="Logo ICVC">
+            <img src="https://jovenes.atec.mx/img/LogoDep.png" alt="Actividad Deportiva">
         </div>
         
         <div class="card-body">
@@ -73,35 +127,59 @@
         
         <div class="card-date-box">
             <div class="date-content">
-                <span class="day">00</span>
+                <span class="day">0</span>
                 <span class="month">JUNIO</span>
-                <span class="year">2026</span>
             </div>
-            <a href="#" class="btn-register-card">¡REGÍSTRATE AHORA!</a>
+            <a href="" class="btn-register-card" onclick="event.stopPropagation();">¡REGÍSTRATE AHORA!</a>
         </div>
     </div>
 
-    <div class="event-card-v2" data-aos="fade-up">
-        <div class="card-logo">
-            <img src="https://jovenes.atec.mx/img/LogoICC.png" alt="Logo Iglesia">
+        <div class="accordion-content">
+        <div class="details-container">
+                            
+                <div class="important-box">
+                    <h4>⚠ PROXIMAMENTE MÁS INFORMACIÓN:</h4>
         </div>
+    </div>
+</div>
+</div>
+
+
+<div class="event-card-v2 accordion-item" id="cuerna-agost">
+    <div class="accordion-header" onclick="toggleAccordion('cuerna-agost')">
+        <div class="card-logo">
+            <img src="https://jovenes.atec.mx/img/LogoICC.png" alt="Cuernavaca Agosto">
+        </div>
+        
         <div class="card-body">
             <h3>TRANSFORMADOS POR LA RENOVACIÓN <br> DE VUESTRO ENTENDIMIENTO</h3>
             <p class="event-subtitle">Estudio Bíblico | Alabanza | Dinamicas | Taller</p>
         </div>
+        
         <div class="card-date-box">
             <div class="date-content">
-                <span class="day">00</span>
+                <span class="day">0</span>
                 <span class="month">AGOSTO</span>
-                <span class="year">2026</span>
             </div>
-            <a href="#" class="btn-register-card">¡REGÍSTRATE AHORA!</a>
+            <a href="" class="btn-register-card" onclick="event.stopPropagation();">¡REGÍSTRATE AHORA!</a>
         </div>
     </div>
 
-<div class="event-card-v2" data-aos="fade-up">
+        <div class="accordion-content">
+        <div class="details-container">
+                            
+                <div class="important-box">
+                    <h4>⚠ PROXIMAMENTE MÁS INFORMACIÓN:</h4>
+        </div>
+    </div>
+</div>
+</div>
+
+
+<div class="event-card-v2 accordion-item" id="puebla-oct">
+    <div class="accordion-header" onclick="toggleAccordion('puebla-oct')">
         <div class="card-logo">
-            <img src="https://jovenes.atec.mx/img/LogoICP.png" alt="Logo ICVC">
+            <img src="https://jovenes.atec.mx/img/LogoICP.png" alt="Cuernavaca Agosto">
         </div>
         
         <div class="card-body">
@@ -113,29 +191,51 @@
             <div class="date-content">
                 <span class="day">17</span>
                 <span class="month">OCTUBRE</span>
-                <span class="year">2026</span>
             </div>
-            <a href="#" class="btn-register-card">¡REGÍSTRATE AHORA!</a>
+            <a href="" class="btn-register-card" onclick="event.stopPropagation();">¡REGÍSTRATE AHORA!</a>
         </div>
     </div>
 
-    <div class="event-card-v2" data-aos="fade-up">
-        <div class="card-logo">
-            <img src="https://jovenes.atec.mx/img/LogoCamp2.png" alt="Logo Iglesia">
+       <div class="accordion-content">
+        <div class="details-container">
+                            
+                <div class="important-box">
+                    <h4>⚠ PROXIMAMENTE MÁS INFORMACIÓN:</h4>
         </div>
+    </div>
+</div>
+</div>
+
+
+<div class="event-card-v2 accordion-item" id="camp-dic">
+    <div class="accordion-header" onclick="toggleAccordion('camp-dic')">
+        <div class="card-logo">
+            <img src="https://jovenes.atec.mx/img/LogoCamp2.png" alt="Campamento Diciembre">
+        </div>
+        
         <div class="card-body">
             <h3>CAMPAMENTO DE <br> EVANGELISMO</h3>
             <p class="event-subtitle">Campamento | Conferencias | Dinámicas | Talleres</p>
         </div>
+        
         <div class="card-date-box">
             <div class="date-content">
-                <span class="day">00</span>
+                <span class="day">0</span>
                 <span class="month">DICIEMBRE</span>
-                <span class="year">2026</span>
             </div>
-            <a href="#" class="btn-register-card">¡REGÍSTRATE AHORA!</a>
+            <a href="" class="btn-register-card" onclick="event.stopPropagation();">¡REGÍSTRATE AHORA!</a>
         </div>
     </div>
+
+        <div class="accordion-content">
+        <div class="details-container">
+                            
+                <div class="important-box">
+                    <h4>⚠ PROXIMAMENTE MÁS INFORMACIÓN:</h4>
+        </div>
+    </div>
+</div>
+</div>
 
 </section>    
 
@@ -147,24 +247,32 @@
             <h3 class="footer-logo-text">JÓVENES <span>2026</span></h3>
             <p>No te conformes a este siglo</p>
             <div class="social-links">
-                <a href="#">Facebook</a>
-                <a href="#">Instagram</a>
-                <a href="#">YouTube</a>
+
             </div>
         </div>
 
-        <div class="footer-qr">
-            <div class="qr-container">
-                <img src="https://jovenes.atec.mx/img/qrjov.png" alt="QR Registro">
-            </div>
-            <p>WhatsApp</p>
+<div class="footer-qr">
+    <a href="https://wa.me/525517817786?text=Hola,%20quisiera%20más%20información%20sobre%20los%20Eventos%20Jóvenes%202026" 
+       target="_blank" 
+       class="qr-link">
+        <div class="qr-container">
+            <img src="https://jovenes.atec.mx/img/qrjov.png" alt="QR Registro">
         </div>
+        <p>WhatsApp</p>
+    </a>
+</div>
 
-        <div class="footer-contact">
-            <h4>CONTACTO</h4>
-            <p>Hno. <br> </p>
-            <p><strong>e-mail:</strong> alguien@gmail.com</p>
-        </div>
+<div class="footer-contact">
+    <h4>CONTACTO</h4>
+    <p>Organizadores<br> </p>
+    <p>
+        <strong>e-mail:</strong> 
+        <a href="mailto:levantatejoven1@gmail.com?subject=Informes%20Eventos%20Jóvenes%202026" class="email-link">
+            levantatejoven1@gmail.com
+        </a>
+    </p>
+</div>
+
     </div>
     
     <div class="footer-bottom">

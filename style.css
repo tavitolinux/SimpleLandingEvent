@@ -2,6 +2,7 @@
     --yellow: #f1c40f;
     --blue-dark: #0a2e52;
     --bg-dark: #0f0f0f;
+    --blue-accent: #0d4a7d;
 }
 
 body {
@@ -13,12 +14,12 @@ body {
     overflow-x: hidden;
 }
 
-h1, h2, .event-date {
+h1, h2, h3, h4, .event-date {
     font-family: 'Oswald', sans-serif;
     text-transform: uppercase;
 }
 
-/* Hero Section */
+/* --- HERO SECTION --- */
 .hero {
     height: 100vh;
     display: flex;
@@ -26,20 +27,51 @@ h1, h2, .event-date {
     justify-content: center;
     text-align: center;
     position: relative;
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://jovenes.atec.mx/img/pic1.png') center/cover;
+    overflow: hidden;
+    background: url('https://jovenes.atec.mx/img/pic1.png') center/cover no-repeat;
+    background-color: black;
 }
 
-.world-glow {
+.hero-video {
     position: absolute;
-    width: 200px;
-    height: 200px;
-    background: radial-gradient(circle, rgba(241, 196, 15, 0.4) 0%, rgba(255, 69, 0, 0) 70%);
-    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    transform: translate(-50%, -50%);
+    object-fit: cover; 
+}
+
+/* Ajustes específicos para móviles */
+@media (max-width: 768px) {
+    .hero {
+        /* En móviles, a veces una altura de 100vh corta mucho el video horizontal */
+        /* Podemos bajarlo a 60vh o 70vh si quieres que se vea más proporción del video */
+        height: 80vh; 
+    }
+
+    .hero-video {
+        /* Mantenemos object-fit cover, pero podrías probar 'contain' 
+           si no te importa ver el fondo de la sección detrás */
+        object-fit: cover;
+    }
+.main-title {
+        font-size: 3.5rem; /* Ajuste de tamaño para que quepa en pantalla móvil */
+    }
+}
+
+
+.hero-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.6);
     z-index: 1;
 }
 
 .hero-content {
     z-index: 2;
+    padding: 20px;
 }
 
 .main-title {
@@ -52,53 +84,293 @@ h1, h2, .event-date {
 .subtitle {
     color: var(--yellow);
     font-size: clamp(1rem, 5vw, 2rem);
-    margin-bottom: 0;
+    margin-bottom: 5px;
 }
 
-/* Tarjetas de Eventos */
+.verse {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 20px auto 0;
+    opacity: 0.9;
+}
+
+/* --- EVENT CARDS --- */
 .events-container {
     padding: 100px 20px;
     max-width: 900px;
     margin: 0 auto;
 }
 
-.event-card {
-    background: var(--blue-light);
-    border-left: 5px solid var(--yellow);
+.event-card-v2 {
+    background: rgba(4, 71, 172, 0.15);
+    border-radius: 15px;
     margin-bottom: 30px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.event-card-v2:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.accordion-header {
+    display: grid;
+    grid-template-columns: 180px 1fr 220px;
+    cursor: pointer;
+    align-items: center;
+}
+
+.card-logo {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.card-logo img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid rgba(255,255,255,0.2);
+}
+
+.card-body {
+    padding: 20px;
+}
+
+.card-body h3 {
+    ont-family: 'Oswald', sans-serif;
+    font-size: 2rem;
+    margin: 0;
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+.event-subtitle {
+    margin-top: 10px;
+    font-size: 1.1rem;
+    opacity: 0.8;
+}
+
+.card-date-box {
+    background: var(--blue-accent);
+    height: 74%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.date-content .day {
+    display: block;
+    font-size: 3.5rem;
+    font-weight: bold;
+    font-family: 'Oswald', sans-serif;
+    line-height: 1;
+    text-align: center;
+    
+}
+
+.date-content .month {
+    display: block;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.date-content .year {
+    display: block;
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+.btn-register-card {
+    background-color: #fdd835;
+    color: #0d4a7d;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.85rem;
+    margin-top: 15px;
+    transition: all 0.3s ease;
+    width: 80%;
+    text-align: center;
+}
+
+.btn-register-card:hover {
+    background-color: white;
+    transform: scale(1.05);
+}
+
+/* Ajuste Responsivo para Móviles */
+@media (max-width: 768px) {
+    .event-card-v2 {
+        grid-template-columns: 1fr; /* Una sola columna en móvil */
+        text-align: center;
+        gap: 20px;
+    }
+    
+    .card-date-box {
+        width: 100%;
+        padding: 30px 0;
+        align-items: center;
+        
+    }
+
+
+}
+
+
+/* --- ACORDEÓN CONTENIDO --- */
+.accordion-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    background: rgba(0, 0, 0, 0.4);
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 1500px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.details-container {
+    padding: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+}
+
+.video-wrapper video {
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+}
+
+.details-text p { margin-bottom: 15px; line-height: 1.6; }
+.important-box {
+    background: rgba(241, 196, 15, 0.08);
+    padding: 20px;
+    border-radius: 10px;
+    border-left: 4px solid var(--yellow);
+    margin: 25px 0;
+}
+
+.map-link { color: var(--yellow); font-weight: bold; }
+
+/* --- FOOTER --- */
+.main-footer {
+    background-color: #050505;
+    color: white;
+    padding: 60px 20px 20px 20px;
+    border-top: 4px solid var(--yellow);
+    margin-top: 50px;
+}
+
+.footer-content {
+    max-width: 1100px;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    padding: 25px;
-    border-radius: 0 15px 15px 0;
-    backdrop-filter: blur(5px);
+    flex-wrap: wrap;
+    gap: 40px;
 }
 
-.event-icon {
-    font-size: 2rem;
-    margin-right: 20px;
+.footer-info h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.8rem;
+    margin-bottom: 10px;
 }
 
-.event-info {
-    display: flex;
-    align-items: center;
+.footer-info h3 span {
+    color: var(--yellow);
 }
 
-.event-date {
-    background: var(--blue-dark);
-    padding: 15px 25px;
-    font-size: 1.5rem;
+
+.qr-container {
+    background: white;
+    padding: 10px;
+    width: 130px;
+    height: 130px;
+    border-radius: 15px;
+    margin: 0 auto;
+}
+
+.qr-container img {
+    width: 100%;
+    height: 100%;
+}
+
+.dev-signature {
+    margin-top: 20px;
+    font-size: 0.65rem;
+    opacity: 0.4;
+    text-align: center;
+}
+
+.dev-signature a {
+    color: inherit;
+    text-decoration: none;
     font-weight: bold;
-    border-radius: 8px;
-    min-width: 120px;
-    text-align: center;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease;
 }
 
-/* Footer */
-.footer {
-    text-align: center;
-    padding: 50px;
-    background: #000;
+.dev-signature:hover {
+    opacity: 1; /* Se ilumina al pasar el mouse */
+    letter-spacing: 1.5px; /* Efecto sutil de expansión */
+}
+
+.dev-signature a:hover {
+    color: var(--yellow); /* Cambia al color del tema */
+    border-bottom: 1px solid var(--yellow);
+}
+
+.qr-link {
+    text-decoration: none; /* Quita el subrayado del texto */
+    display: block;
+    transition: all 0.3s ease;
+}
+/* Efecto al pasar el mouse (Hover) */
+.qr-link:hover .qr-container {
+    transform: scale(1.1); /* Agranda el QR */
+    box-shadow: 0 0 25px rgba(37, 211, 102, 0.4); /* Brillo verde WhatsApp */
+}
+
+.qr-link:hover p {
+    color: #25d366; /* El texto cambia a verde WhatsApp al pasar el mouse */
+    letter-spacing: 2px;
+    }
+
+
+/* --- RESPONSIVO --- */
+@media (max-width: 850px) {
+    .accordion-header {
+        grid-template-columns: 1fr;
+    }
+    
+    .card-date-box { 
+        
+        padding: 40px 20px; 
+        width: 100%;
+        padding: 30px 0;
+        align-items: center;
+        }
+
+    .details-container {
+        grid-template-columns: 1fr;
+        padding: 25px;
+    }
+    
+    .hero { height: 75vh; }
+    
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+
 }
 
 .qr-placeholder {
@@ -113,168 +385,6 @@ h1, h2, .event-date {
     font-weight: bold;
 }
 
-/* Responsivo */
-@media (max-width: 768px) {
-    .event-card {
-        flex-direction: column;
-        text-align: center;
-        gap: 20px;
-    }
-}
-
-/* Contenedor principal */
-.events-container {
-    max-width: 1000px;
-    margin: 50px auto;
-    padding: 20px;
-}
-
-/* Estilo de la Tarjeta Formato Horizontal */
-.event-card-v2 {
-    display: grid;
-    grid-template-columns: 180px 1fr 220px; /* Logo, Texto, Caja Azul */
-    background: rgba(4, 71, 172, 0.185); /* Fondo sutil oscuro */
-    border-radius: 15px;
-    margin-bottom: 30px;
-    overflow: hidden;
-    align-items: center;
-    border: 1px solid rgba(255,255,255,0.1);
-    transition: transform 0.3s ease;
-}
-
-.event-card-v2:hover {
-    transform: translateY(-5px);
-    background: rgba(255, 255, 255, 0.08);
-}
-
-/* Columna 1: Logo */
-.card-logo {
-    padding: 20px;
-    display: flex;
-    justify-content: center;
-}
-
-.card-logo img {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-}
-
-/* Columna 2: Texto Central */
-.card-body {
-    padding: 20px;
-    color: white;
-}
-
-.card-body h3 {
-    font-family: 'Oswald', sans-serif;
-    font-size: 2rem;
-    line-height: 1.1;
-    margin: 0;
-    text-transform: uppercase;
-}
-
-.event-subtitle {
-    margin-top: 10px;
-    font-size: 1.1rem;
-    opacity: 0.8;
-}
-
-/* Columna 3: Caja Azul de Fecha y Botón */
-.card-date-box {
-    background: #0d4a7d; /* Azul similar al cartel */
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    text-align: center;
-}
-
-.date-content {
-    color: white;
-    line-height: 1;
-    margin-bottom: 15px;
-}
-
-.date-content .day {
-    display: block;
-    font-size: 3.5rem;
-    font-weight: bold;
-    font-family: 'Oswald', sans-serif;
-}
-
-.date-content .month {
-    display: block;
-    font-size: 1.2rem;
-    letter-spacing: 2px;
-}
-
-.date-content .year {
-    display: block;
-    font-size: 1rem;
-    opacity: 0.9;
-}
-
-/* Botón Amarillo */
-.btn-register-card {
-    background-color: #fdd835; /* Amarillo vibrante */
-    color: #0d4a7d;
-    padding: 8px 15px;
-    border-radius: 20px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 0.8rem;
-    transition: background 0.3s;
-    width: 90%;
-}
-
-.btn-register-card:hover {
-    background-color: white;
-}
-
-/* Ajuste Responsivo para Móviles */
-@media (max-width: 850px) {
-    .event-card-v2 {
-        grid-template-columns: 1fr; /* Una sola columna en móvil */
-        text-align: center;
-    }
-    
-    .card-date-box {
-        width: 100%;
-        padding: 30px 0;
-    }
-}
-
-.main-footer {
-    background-color: #050505;
-    color: white;
-    padding: 60px 20px 20px 20px;
-    border-top: 4px solid var(--yellow);
-    margin-top: 50px;
-}
-
-.footer-content {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    flex-wrap: wrap;
-    gap: 40px;
-}
-
-.footer-info h3 {
-    font-family: 'Oswald', sans-serif;
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-}
-
-.footer-info h3 span {
-    color: var(--yellow);
-}
 
 .social-links {
     margin-top: 20px;
@@ -294,35 +404,40 @@ h1, h2, .event-date {
     color: var(--yellow);
 }
 
-/* Contenedor del QR */
+
+
+
 .footer-qr {
     text-align: center;
 }
 
-.qr-container {
-    background: white;
-    padding: 10px;
-    width: 130px;
-    height: 130px;
-    margin: 0 auto 10px;
-    border-radius: 10px;
-}
-
-.qr-container img {
-    width: 100%;
-    height: 100%;
-}
 
 .footer-qr p {
     font-family: 'Oswald', sans-serif;
-    font-size: 0.8rem;
-    letter-spacing: 1px;
+    font-size: 0.9rem;
+    color: var(--yellow);
+    margin-top: 10px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+.email-link {
+    color: white; /* Mantiene el color blanco */
+    text-decoration: none; /* Quita el subrayado feo */
+    transition: all 0.3s ease;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.3); /* Una línea sutil debajo */
+}
+
+.email-link:hover {
+    color: var(--yellow); /* Cambia al amarillo del cartel al pasar el mouse */
+    border-bottom: 1px solid var(--yellow);
+    padding-left: 5px; /* Un pequeño movimiento hacia la derecha */
 }
 
 .footer-contact h4 {
     font-family: 'Oswald', sans-serif;
     color: var(--yellow);
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 /* Franja final */
@@ -333,40 +448,4 @@ h1, h2, .event-date {
     border-top: 1px solid rgba(255, 255, 255, 0.1);
     font-size: 0.8rem;
     opacity: 0.5;
-}
-
-/* Responsivo para el footer */
-@media (max-width: 768px) {
-    .footer-content {
-        flex-direction: column;
-        text-align: center;
-        align-items: center;
-    }
-}
-
-.dev-signature {
-    margin-top: 10px;
-    font-size: 0.7rem; /* Muy pequeño y discreto */
-    letter-spacing: 1px;
-    opacity: 0.4; /* Se ve tenue */
-    transition: all 0.4s ease;
-    text-transform: lowercase;
-}
-
-.dev-signature a {
-    color: inherit;
-    text-decoration: none;
-    font-weight: bold;
-    border-bottom: 1px solid transparent;
-    transition: all 0.3s ease;
-}
-
-.dev-signature:hover {
-    opacity: 1; /* Se ilumina al pasar el mouse */
-    letter-spacing: 1.5px; /* Efecto sutil de expansión */
-}
-
-.dev-signature a:hover {
-    color: var(--yellow); /* Cambia al color del tema */
-    border-bottom: 1px solid var(--yellow);
 }
